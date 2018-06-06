@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Weather Forecast</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+  <link rel="stylesheet" type="text/css" href="/css/styles.css">
+</head>
+<body>
+  <div class="wrapper">
+    <div class="cloud-container">
+      <div class="weather-container">
+        <div class="city-name-container">
+          <form method="POST" action="/" class="city-name">
+            <input type="text" id="city_name" placeholder="Enter a city name" name="city_name" <% if(weather[0].city) {%> value="<%= weather[0].city %>" <% } %> />
+            <button type="submit" class="button-search"><i class="fa fa-search" id="search"></i></button>
+          </form>
+          <button class="button-reset" onclick="document.getElementById('city_name').value = ''"><i class="fa fa-times"></i></button>
+        </div>
+        <div class="hr"></div>
+        <div class="temperature-container">
+          <div class="temperature"><%= weather[0].temperature %></div>
+          <div class="degree">°</div>
+          <div class="weather-details">
+            <div class="f">F</div>
+            <div id="cloudiness" class="cloudiness"><%= weather[0].description.charAt(0).toUpperCase() + weather[0].description.slice(1) %></div>
+            <div class="humidity"><span id="humidity"><%= weather[0].humidity %>%</span> Humidity</div>
+          </div>
+        </div>
+        <div class="forecast-container">
+          <div class="col-1">
+            <div class="day"><%= weather[0].date %></div>
+            <div class="icon">
+              <img src="http://openweathermap.org/img/w/<%= weather[0].icon %>.png" height="30" width="30" alt="Image">
+            </div>
+            <div class="max-temp"><%= weather[0].temp_max %></div>
+            <div class="min-temp"><%= weather[0].temp_min %></div>
+          </div>
+          <div class="vr"></div>
+          <div class="col-2">
+            <div class="day"><%= weather[1].date %></div>
+            <div class="icon">
+              <img src="http://openweathermap.org/img/w/<%= weather[1].icon %>.png" height="30" width="30" alt="Image">
+            </div>
+            <div class="max-temp"><%= weather[1].temp_max %></div>
+            <div class="min-temp"><%= weather[1].temp_min %></div>
+          </div>
+          <div class="vr"></div>
+          <div class="col-3">
+            <div class="day"><%= weather[2].date %></div>
+            <div class="icon">
+              <img src="http://openweathermap.org/img/w/<%= weather[2].icon %>.png" height="30" width="30" alt="Image">
+            </div>
+            <div class="max-temp"><%= weather[2].temp_max %></div>
+            <div class="min-temp"><%= weather[2].temp_min %></div>
+          </div>
+          <div class="vr"></div>
+          <div class="col-4">
+            <div class="day"><%= weather[3].date %></div>
+            <div class="icon">
+              <img src="http://openweathermap.org/img/w/<%= weather[3].icon %>.png" height="30" width="30" alt="Image">
+            </div>
+            <div class="max-temp"><%= weather[3].temp_max %></div>
+            <div class="min-temp"><%= weather[3].temp_min %></div>
+          </div>
+          <div class="vr"></div>
+          <div class="col-5">
+            <div class="day"><%= weather[4].date %></div>
+            <div class="icon">
+              <img src="http://openweathermap.org/img/w/<%= weather[4].icon %>.png" height="30" width="30" alt="Image">
+            </div>
+            <div class="max-temp"><%= weather[4].temp_max %></div>
+            <div class="min-temp"><%= weather[4].temp_min %></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>
